@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+body{
+  width: 100%;
+  background-color: aquamarine;
+}
+#root{
+  width: 100%;
+  background-color: blue;
+}
+main{
+  background-color: blueviolet;
+  height: 500px;
+}
+header{
+  background-color: brown;
+  height: 200px;
+}
+aside{
+  background-color: chartreuse;
+  height: 500px;
+}
