@@ -2,33 +2,47 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import ContadorR from './assets/componentes/ContadorR'
+{/*import  Header from './componentes/Header.jsx'
+import Dashboard from './componentes/Dashboard.jsx'
+import Roles from './componentes/Roles.jsx'
+import Contador2 from './assets/componentes/Contador2'
+*/}
 
-function App() {
-  const [count, setCount] = useState(0)
+function App(props) {
+  //const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+    /* EJERCICIO 1 
+        <div className="container-fluid cuerpo">
+        <div className='row'>
+          <div className='col-12'>
+            <Header />
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-4'>
+            <Roles />
+          </div>
+          <div className='col-8'>
+            
+            <Dashboard />
+          </div>
+        </div>
       </div>
-      <h1>Fatima Zahra Bouaichat</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    */
+      /* EJERCICIO 2<div>
+        <p>Ejemplo de useState</p>
+        {/*<Contador contador={contador}></Contador>
+        <Contador2></Contador2>
+      </div>*/
+  /*<Contador3></Contador3>*/ 
+  <>
+  <div>
+    <ContadorR></ContadorR>
+    </div>
+  </>
   )
 }
 
