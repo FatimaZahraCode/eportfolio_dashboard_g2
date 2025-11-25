@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import ContadorR from './assets/componentes/ContadorR'
+import ContadorR from './assets/componentes2/ContadorR.jsx'
 {/*import  Header from './componentes/Header.jsx'
 import Dashboard from './componentes/Dashboard.jsx'
 import Roles from './componentes/Roles.jsx'
@@ -32,17 +32,17 @@ function App(props) {
         </div>
       </div>
     */
-      /* EJERCICIO 2<div>
-        <p>Ejemplo de useState</p>
-        {/*<Contador contador={contador}></Contador>
-        <Contador2></Contador2>
-      </div>*/
-  /*<Contador3></Contador3>*/ 
-  <>
-  <div>
-    <ContadorR></ContadorR>
-    </div>
-  </>
+    /* EJERCICIO 2<div>
+      <p>Ejemplo de useState</p>
+      {/*<Contador contador={contador}></Contador>
+      <Contador2></Contador2>
+    </div>*/
+    /*<Contador3></Contador3>*/
+    <>
+      <div>
+        <ContadorR></ContadorR>
+      </div>
+    </>
   )
 }
 

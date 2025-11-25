@@ -15,4 +15,4 @@ function Contador3() {
             <button onClick={botonVerde}>Verde</button><br/>
             <span>{contador.right}</span>
         </div>)
-} export default Contador2;
+} export default Contador3;
