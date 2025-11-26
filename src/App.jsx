@@ -34,13 +34,13 @@ function App(props) {
     */
     /* EJERCICIO 2<div>
       <p>Ejemplo de useState</p>
-      {/*<Contador contador={contador}></Contador>
+      {/*<Contador contador = {props.contador}></Contador>
       <Contador2></Contador2>
     </div>*/
     /*<Contador3></Contador3>*/
     <>
       <div>
-        <ContadorR></ContadorR>
+        <ContadorR contador = {props.contador}></ContadorR>
       </div>
     </>
   )
