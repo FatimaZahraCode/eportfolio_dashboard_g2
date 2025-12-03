@@ -3,6 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import ContadorR from './assets/componentes2/ContadorR.jsx'
+import BarrasHerramientas from './assets/componenteUseContext/BarraHerramientas.jsx'
+import TemaContext from './contextos/TemaContext.jsx'
+import temas from './mocks/mock-temas.js'
+import React from 'react';
+import BotonTema from './assets/componenteUseContext/BotonTema.jsx'
 {/*import  Header from './componentes/Header.jsx'
 import Dashboard from './componentes/Dashboard.jsx'
 import Roles from './componentes/Roles.jsx'
@@ -37,11 +42,15 @@ function App(props) {
       {/*<Contador contador = {props.contador}></Contador>
       <Contador2></Contador2>
     </div>*/
-    /*<Contador3></Contador3>*/
+    /*<Contador3></Contador3>
+    
+        <ContadorR contador = {props.contador}></ContadorR>*/
     <>
-      <div>
-        <ContadorR contador = {props.contador}></ContadorR>
-      </div>
+
+      <TemaContext.Provider value={temas.dark}>
+        <BarrasHerramientas></BarrasHerramientas>
+      </TemaContext.Provider>
+
     </>
   )
 }
