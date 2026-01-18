@@ -1,9 +1,9 @@
 import React from "react"
-function Header(props) {  
+function Header({usuario}) {  
     return (
     <>
     <h2>HEADER</h2>
-    <div>{props.nombre}</div>
+    <div>{usuario.nombre}</div>
     </>)
 }
 export default Header
