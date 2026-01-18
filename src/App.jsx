@@ -1,58 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import ContadorR from './assets/componentes2/ContadorR.jsx'
-import BarrasHerramientas from './assets/componenteUseContext/BarraHerramientas.jsx'
-import TemaContext from './contextos/TemaContext.jsx'
-import temas from './mocks/mock-temas.js'
-import React from 'react';
-import BotonTema from './assets/componenteUseContext/BotonTema.jsx'
-{/*import  Header from './componentes/Header.jsx'
-import Dashboard from './componentes/Dashboard.jsx'
-import Roles from './componentes/Roles.jsx'
-import Contador2 from './assets/componentes/Contador2'
-*/}
+import './App.css';
+import Header from './assets/componentes/Header.jsx'
+import Dashboard from './assets/componentes/Dashboard.jsx'
+import Roles from './assets/componentes/Roles.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 
-function App(props) {
-  //const [count, setCount] = useState(0)
 
+function App() {
+  let valor="Administrador"
+  const [user , setUser]=useState(valor)
+  
   return (
-
-    /* EJERCICIO 1 
-        <div className="container-fluid cuerpo">
-        <div className='row'>
-          <div className='col-12'>
-            <Header />
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-4'>
-            <Roles />
-          </div>
-          <div className='col-8'>
-            
-            <Dashboard />
-          </div>
-        </div>
+    <div className="container-fluid ">
+      <div className='row'>
+        <header className='col-12 col-md-12 header'>
+          <Header usuario={user} />
+        </header>
       </div>
-    */
-    /* EJERCICIO 2<div>
-      <p>Ejemplo de useState</p>
-      {/*<Contador contador = {props.contador}></Contador>
-      <Contador2></Contador2>
-    </div>*/
-    /*<Contador3></Contador3>
-    
-        <ContadorR contador = {props.contador}></ContadorR>*/
-    <>
-
-      <TemaContext.Provider value={temas.dark}>
-        <BarrasHerramientas></BarrasHerramientas>
-      </TemaContext.Provider>
-
-    </>
+      <div className='row'>
+        <aside className='col-3 col-md-3 order-1 order-md-1 aside'>
+          <Roles  />
+        </aside>
+        <main className='col-9 col-md-9 order-2 order-md-2 main'>
+          <Dashboard />     
+        </main>
+      </div>
+    </div>
   )
+
 }
 
 export default App
