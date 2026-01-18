@@ -1,14 +1,29 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import Formulario from "./Formulario"
 import Selector from "./Selector"
 import TokenContext from "../../contextos/TokenContext"
 function NuevaEvidencia() {
-    const token =useContext(TokenContext)
-    let lista=token.lista
-    return(
+    const token = useContext(TokenContext)
+    let lista = token.lista
+    const [tarea, setTarea] = useState()
+    const [evidencias, setEvidencias] = useState([]);
+    //formulario
+    function manejarAccion(nuevaEvidencia) {
+        console.log(nuevaEvidencia);
+        setEvidencias([...evidencias, nuevaEvidencia]);
+    }
+    //selector
+    function manejarOpcion(opcion) {
+        setTarea(opcion)
+    }
+    return (
         <>
-        <Selector></Selector>
-        <Formulario lista={lista} ></Formulario>
+            <Selector tarea={tarea} manejarOpcion={manejarOpcion}></Selector>
+            {tarea && <Formulario id={tarea} lista={lista} manejarAccion={manejarAccion} ></Formulario>}
+            {evidencias.map((evidencia) =>
+                <div><strong>TAREA_ID:</strong>{evidencia.tarea_id}<br /><strong>ESTUDIANTE_ID:</strong>{evidencia.estudiante_id}<br />
+                <strong>URL:</strong>{evidencia.url}<br /><strong>DESCRIPCION:</strong>{evidencia.descripcion}<br /><strong>ESTADO DE VALIDACION: </strong>{evidencia.estado_validacion}</div>
+            )}
         </>
     )
-};export default NuevaEvidencia
+}; export default NuevaEvidencia

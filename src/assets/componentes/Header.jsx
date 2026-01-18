@@ -3,7 +3,7 @@ function Header(props) {
     return (
     <>
     <h2>HEADER</h2>
-    <div>{props.usuario}</div>
+    <div>{props.nombre}</div>
     </>)
 }
 export default Header
