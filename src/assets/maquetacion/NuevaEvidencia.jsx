@@ -19,7 +19,7 @@ function NuevaEvidencia() {
     return (
         <>
             <Selector tarea={tarea} manejarOpcion={manejarOpcion}></Selector>
-            {tarea && <Formulario id={tarea} lista={lista} manejarAccion={manejarAccion} ></Formulario>}
+             <Formulario id={tarea} lista={evidencias} manejarAccion={manejarAccion} ></Formulario>
             {evidencias.map((evidencia) =>
                 <div><strong>TAREA_ID:</strong>{evidencia.tarea_id}<br /><strong>ESTUDIANTE_ID:</strong>{evidencia.estudiante_id}<br />
                 <strong>URL:</strong>{evidencia.url}<br /><strong>DESCRIPCION:</strong>{evidencia.descripcion}<br /><strong>ESTADO DE VALIDACION: </strong>{evidencia.estado_validacion}</div>
