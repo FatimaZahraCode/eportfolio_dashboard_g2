@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import mockRoles from "../mocks/mock-roles"
+import mockRoles from "../../mocks/mock-roles"
  function useRoles() {
    const [buscando, setBuscando] = useState(false);
-   const [lista, setLista] = useState(mockRoles);
+   const [lista, setLista] = useState(Object.values(mockRoles));
 
    return {
     buscando,
