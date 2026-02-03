@@ -26,14 +26,18 @@ import { useState } from 'react';
 >>>>>>> origin/ActividadDesarrolloApartadoAyB
 =======
 import UserContext from './contextos/UserContext';
+<<<<<<< HEAD
 >>>>>>> origin/ActividadDesarrolloCyD
+=======
+import Home from './paginas/Home.jsx';
+>>>>>>> origin/GestionAside
 
 
 function App() {
-  let valor={id:1,nombre:"Administrador"}
-  const [user , setUser]=useState(valor)
-  
+
+
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     /* EJERCICIO 1 
@@ -106,6 +110,12 @@ function App() {
       </div>
     </div>
 >>>>>>> origin/ActividadDesarrolloApartadoAyB
+=======
+    <>
+      <Home />
+    </>
+
+>>>>>>> origin/GestionAside
   )
 
 }
