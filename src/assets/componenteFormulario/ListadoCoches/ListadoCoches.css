@@ -1,0 +1,16 @@
+table{
+    background-color: #2F4F4F;
+    border-style: none;
+}
+th, td {
+    background-color: aliceblue;
+    border-style: none;
+    padding: 5px;
+    width: 320px;
+    color: #000000;
+    text-align: center;
+}
+span {
+    color: red;
+    font-size: 12px;
+}    
