@@ -22,11 +22,15 @@ import Dashboard from './assets/componentes/Dashboard.jsx'
 import Roles from './assets/componentes/Roles.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+<<<<<<< HEAD
 >>>>>>> origin/ActividadDesarrolloApartadoAyB
+=======
+import UserContext from './contextos/UserContext';
+>>>>>>> origin/ActividadDesarrolloCyD
 
 
 function App() {
-  let valor="Administrador"
+  let valor={id:1,nombre:"Administrador"}
   const [user , setUser]=useState(valor)
   
   return (
@@ -89,10 +93,15 @@ function App() {
       </div>
       <div className='row'>
         <aside className='col-3 col-md-3 order-1 order-md-1 aside'>
-          <Roles  />
+          <UserContext.Provider value={user}>
+            <Roles  />
+          </UserContext.Provider>
+          
         </aside>
         <main className='col-9 col-md-9 order-2 order-md-2 main'>
-          <Dashboard />     
+          <UserContext.Provider value={user}>
+            <Dashboard />
+          </UserContext.Provider>   
         </main>
       </div>
     </div>

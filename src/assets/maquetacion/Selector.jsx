@@ -5,25 +5,24 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-function Selector() {
+function Selector({tarea,manejarOpcion}) {
     const token =useContext(TokenContext)
     let lista=token.lista
-    const [opcion, setOpcion] = React.useState('');
+    
 
     const handleChange = (event) => {
-        setOpcion(event.target.value);
+        manejarOpcion(event.target.value)
     };
-
     return (
         <>
             <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Tarea</InputLabel>
+                    <InputLabel id="demo-simple-select-label" >Tarea</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={opcion}
-                        label="Age"
+                        value={tarea}
+                        label="Tarea"
                         onChange={handleChange}
                     >
                         {lista.map((o)=>
