@@ -9,10 +9,28 @@ import useRoles from '../../Hooks/Roles/useRoles';
 import mockAdministrador from '../../mocks/mock-administrador.js';
 import useMisModulosImpartidos from '../Hooks/ModulosImpartidos/useMisModulosImpartidos.jsx';
 import useMisModulosMatriculados from '../Hooks/ModulosMatriculados/useMisModulosMatriculados.jsx';
+import { useState } from 'react';
 
 function Acordeon(props) {
-    const administrador = mockAdministrador.administrador;
-    console.log("ADMINISTRADOR:", administrador);
+
+    const [rol , setrol] = useState(props.roles);
+    console.log("PROPS EN ACORDEON:", rol.roles[1]);
+
+    for (let i = 0; i < rol.roles.length; i++) {
+        if (rol.roles[i] === 'administrador') {
+            
+            console.log("ADMINISTRADOR:");
+
+        }
+        if (rol.roles[i] === 'docente') {
+            
+            console.log("DOCENTE");
+        }
+        if (rol.roles[i] === 'estudiante') {
+
+            console.log("ESTUDIANTE");
+        }
+    }
     console.log("LISTA:", props.roles.roles);
     const roles = props.roles.roles;
     const modulosImpartidos = useMisModulosImpartidos();
@@ -40,7 +58,7 @@ function Acordeon(props) {
                     >
                         <Typography component="span">{rol}</Typography>
                     </AccordionSummary>
-                    {rol === 'administrador' && administrador.map((nombre, index) => (
+                    {/* {rol === 'administrador' && administrador.map((nombre, index) => (
                         <AccordionDetails key={index}>
                             {nombre.nombre}
                         </AccordionDetails>
@@ -54,7 +72,7 @@ function Acordeon(props) {
                         <AccordionDetails key={index}>
                             {nombre.nombre}
                         </AccordionDetails>
-                    ))} 
+                    ))}  */}
 
                 </Accordion>
             ))}

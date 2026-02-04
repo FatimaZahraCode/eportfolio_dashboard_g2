@@ -4,6 +4,7 @@ function Header(props) {
     return (
     <>
     <h2>HEADER</h2>
+    <p>Fatima zahra Bouaichat</p>
     <div>{props.user.name}</div>
     </>)
 }

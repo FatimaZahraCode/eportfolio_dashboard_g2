@@ -1,4 +1,4 @@
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 import React from "react";
 function Menu() {
        
@@ -6,11 +6,11 @@ function Menu() {
         <div>
             <Link to="/">Home</Link>
             <br />
-            <Link to="/Bienvenida">Bienvenida</Link>
+            <Link to="/bienvenida">Bienvenida</Link>
             <br />
-            <Link to="/Contacto">Contacto</Link>
+            <Link to="/contacto">Contacto</Link>
             <br />
-            <Link to="/Nosotros">Nosotros</Link>
+            <Link to="/nosotros">Nosotros</Link>
             <br />
         </div>
     );
