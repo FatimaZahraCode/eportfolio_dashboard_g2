@@ -13,67 +13,42 @@ import { useState } from 'react';
 
 function Acordeon(props) {
 
-    const [rol , setrol] = useState(props.roles);
-    console.log("PROPS EN ACORDEON:", rol.roles[1]);
-
-    for (let i = 0; i < rol.roles.length; i++) {
-        if (rol.roles[i] === 'administrador') {
-            
-            console.log("ADMINISTRADOR:");
-
-        }
-        if (rol.roles[i] === 'docente') {
-            
-            console.log("DOCENTE");
-        }
-        if (rol.roles[i] === 'estudiante') {
-
-            console.log("ESTUDIANTE");
-        }
-    }
+    const [rol, setrol] = useState(props.roles);
+    //console.log("PROPS EN ACORDEON:", rol.roles[1]);
     console.log("LISTA:", props.roles.roles);
     const roles = props.roles.roles;
     const modulosImpartidos = useMisModulosImpartidos();
     console.log("MODULOS IMPARTIDOS:", modulosImpartidos);
-    const nombresModulos= modulosImpartidos.lista[0][props.roles.name].lista;
-    const descripcionModulo = (nombresModulos[props.roles.name]) ? props.roles.name  : " ";
-    console.log("DESCRIPCION MODULO:", descripcionModulo);
-    console.log("ROLES:", props.roles.name);
-    console.log("NOMBRES MODULOS:", nombresModulos);
-    const modulosMatriculados=useMisModulosMatriculados()
-    const nombresModulosMatriculados=modulosMatriculados.lista[props.roles.name].lista;
-    const descripcionModuloMatriculado = (nombresModulosMatriculados[props.roles.name]) ? props.roles.name  : " ";
-    console.log("DESCRIPCION MODULO MATRICULADO:", descripcionModuloMatriculado);
-    console.log("MODULOS MATRICULADOS:", modulosMatriculados);
-    
+    const nombresModulos = modulosImpartidos?.lista?.[0]?.[props.roles.name]?.lista || [];
+    //const descripcionModulo = (nombresModulos[props.roles.name]) ? props.roles.name : " ";
+    // console.log("DESCRIPCION MODULO:", descripcionModulo);
+    // console.log("ROLES:", props.roles.name);
+    // console.log("NOMBRES MODULOS:", nombresModulos);
+    const modulosMatriculados = useMisModulosMatriculados()
+    const nombresModulosMatriculados = modulosMatriculados?.lista?.[props.roles.name]?.lista || [];
+    // const descripcionModuloMatriculado = (nombresModulosMatriculados[props.roles.name]) ? props.roles.name : " ";
+    // console.log("DESCRIPCION MODULO MATRICULADO:", descripcionModuloMatriculado);
+    // console.log("MODULOS MATRICULADOS:", modulosMatriculados);
+
     return (
         <div>
             {roles.map((rol, index) => (
                 <Accordion key={index}>
-
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
-                        <Typography component="span">{rol}</Typography>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography>{rol.toUpperCase()}</Typography>
                     </AccordionSummary>
-                    {/* {rol === 'administrador' && administrador.map((nombre, index) => (
-                        <AccordionDetails key={index}>
-                            {nombre.nombre}
-                        </AccordionDetails>
-                    ))}
-                    {rol === 'docente' && nombresModulos.map((nombre, index) => (
-                        <AccordionDetails key={index}>
-                            {nombre.nombre}
-                        </AccordionDetails>
-                    ))}
-                    {rol === 'estudiante' && nombresModulosMatriculados.map((nombre, index) => (
-                        <AccordionDetails key={index}>
-                            {nombre.nombre}
-                        </AccordionDetails>
-                    ))}  */}
-
+                    <AccordionDetails>
+                        {/* Renderizado condicional basado en el rol actual del mapeo */}
+                        {rol === 'docente' && nombresModulos?.map((modulo, i) => (
+                            <Typography key={i}>{modulo.nombre}</Typography>
+                        ))}
+                        {rol === 'estudiante' && nombresModulosMatriculados?.map((modulo, i) => (
+                            <Typography key={i}>{modulo.nombre}</Typography>
+                        ))}
+                        {rol === 'administrador' && (
+                            <Typography></Typography>
+                        )}
+                    </AccordionDetails>
                 </Accordion>
             ))}
         </div>

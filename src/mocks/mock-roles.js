@@ -7,7 +7,7 @@ const roles = {
 
       Antonio: { id : 2,
                    name : "Antonio",
-                   roles: ["estudiante", ]
+                   roles: ["estudiante"]
                    },
 
       Alberto : { id : 3,
