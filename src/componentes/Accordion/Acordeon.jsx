@@ -7,47 +7,49 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import useRoles from '../../Hooks/Roles/useRoles';
 import mockAdministrador from '../../mocks/mock-administrador.js';
+import useAdministradores from '../../Hooks/Administradores/useAdministradores.jsx';
 import useMisModulosImpartidos from '../Hooks/ModulosImpartidos/useMisModulosImpartidos.jsx';
 import useMisModulosMatriculados from '../Hooks/ModulosMatriculados/useMisModulosMatriculados.jsx';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Acordeon(props) {
 
-    const [rol, setrol] = useState(props.roles);
-    //console.log("PROPS EN ACORDEON:", rol.roles[1]);
-    console.log("LISTA:", props.roles.roles);
-    const roles = props.roles.roles;
+    const roles = props.roles;
+    console.log("LISTA:", roles);
+    const rol = roles.name;
+    console.log("roles",rol)
     const modulosImpartidos = useMisModulosImpartidos();
+    const opcionMenu=useAdministradores();
+    const opcionAdministrativa=opcionMenu?.lista?.[0]
+    console.log(opcionAdministrativa)
     console.log("MODULOS IMPARTIDOS:", modulosImpartidos);
-    const nombresModulos = modulosImpartidos?.lista?.[0]?.[props.roles.name]?.lista || [];
-    //const descripcionModulo = (nombresModulos[props.roles.name]) ? props.roles.name : " ";
-    // console.log("DESCRIPCION MODULO:", descripcionModulo);
-    // console.log("ROLES:", props.roles.name);
-    // console.log("NOMBRES MODULOS:", nombresModulos);
+    const nombresModulos = modulosImpartidos?.lista?.[0]?.[rol]?.lista || [];
+    console.log("nombresModulos", nombresModulos);
     const modulosMatriculados = useMisModulosMatriculados()
-    const nombresModulosMatriculados = modulosMatriculados?.lista?.[props.roles.name]?.lista || [];
-    // const descripcionModuloMatriculado = (nombresModulosMatriculados[props.roles.name]) ? props.roles.name : " ";
-    // console.log("DESCRIPCION MODULO MATRICULADO:", descripcionModuloMatriculado);
-    // console.log("MODULOS MATRICULADOS:", modulosMatriculados);
+    const nombresModulosMatriculados = modulosMatriculados?.lista?.[rol]?.lista || [];
+    console.log("nombresModulosMatriculados", nombresModulosMatriculados);
+
+    
 
     return (
         <div>
-            {roles.map((rol, index) => (
+            {roles.roles.map((rolItem, index) => (
                 <Accordion key={index}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography>{rol.toUpperCase()}</Typography>
+                        <Typography>{rolItem.toUpperCase()}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        {/* Renderizado condicional basado en el rol actual del mapeo */}
-                        {rol === 'docente' && nombresModulos?.map((modulo, i) => (
-                            <Typography key={i}>{modulo.nombre}</Typography>
+                        {rolItem === 'docente' && nombresModulos?.map((modulo, i) => (
+                            <Typography key={i}> <Link to={`/funcionalidaddocente/${modulo.id}`}>{modulo.nombre}</Link></Typography>
                         ))}
-                        {rol === 'estudiante' && nombresModulosMatriculados?.map((modulo, i) => (
-                            <Typography key={i}>{modulo.nombre}</Typography>
+                        {rolItem === 'estudiante' && nombresModulosMatriculados?.map((modulo, i) => (
+                            <Typography key={i}>
+                            <Link to={`/funcionalidadestudiante/${modulo.id}`}>{modulo.nombre}</Link></Typography>
                         ))}
-                        {rol === 'administrador' && (
-                            <Typography></Typography>
-                        )}
+                        {rolItem === 'administrador' && opcionAdministrativa?.map((modulo,i)=>(
+                            <Typography key={i}>
+                                <Link to={modulo.ruta}>{modulo.nombre}</Link></Typography>
+                        ))}
                     </AccordionDetails>
                 </Accordion>
             ))}

@@ -12,6 +12,8 @@ import Contacto from './paginas/Contacto.jsx';
 import Nosotros from './paginas/Nosotros.jsx';
 import tareasRA from './mocks/mock-tareasRA.js'
 import TokenContext from './contextos/TokenContext.jsx';
+import Funcionalidadestudiante from './componentes/Funcionalidades/Funcionalidadestudiante.jsx';
+import FuncionalidadDocente from './componentes/Funcionalidades/FuncionalidadDocente.jsx';
 function App() {
 
 
@@ -22,13 +24,21 @@ function App() {
       <TokenContext.Provider value={tareasRA}>
         <Home />
       </TokenContext.Provider>
-      
-      {/* <Routes>
-        <Route path="/" element={<Home></Home>} />
-        <Route path="/bienvenido" element={<Bienvenido></Bienvenido>} />
-        <Route path="/contacto" element={<Contacto></Contacto>} />
-        <Route path="/nosotros" element={<Nosotros></Nosotros>} />
-      </Routes> */}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/funcionalidaddocente/:modulo" element={<FuncionalidadDocente />} />
+        <Route path="/funcionalidadestudiante/:modulo" element={<Funcionalidadestudiante />} />
+        <Route path="/familiasprofesionales" />
+        <Route path="/ciclosformativos/"  />
+        <Route path="/modulosformativos/"  />
+        <Route path="/ra/" />
+        <Route path="/ce/" />
+        <Route path="/crearusuarios/"  />
+        <Route path="/roles/" />
+        <Route path="/matriculas/" />
+        <Route path="/docentes/" />
+      </Routes>
     </>
 
   )
