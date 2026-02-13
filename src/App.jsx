@@ -20,14 +20,15 @@ function App() {
   return (
 
     <>
-      {/* <Menu /> */}
+      {/* <Menu />
+      <Route path="/funcionalidaddocente/:modulo" element={<FuncionalidadDocente />} /> */}
       <TokenContext.Provider value={tareasRA}>
         <Home />
       </TokenContext.Provider>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/funcionalidaddocente/:modulo" element={<FuncionalidadDocente />} />
+        <Route path="/"/>
+        <Route path="/funcionalidaddocente/:modulo"  />
         <Route path="/funcionalidadestudiante/:modulo" element={<Funcionalidadestudiante />} />
         <Route path="/familiasprofesionales" />
         <Route path="/ciclosformativos/"  />

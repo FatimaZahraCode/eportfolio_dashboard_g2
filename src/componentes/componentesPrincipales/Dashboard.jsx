@@ -1,15 +1,19 @@
-import { useContext } from "react"
-import NuevaEvidencia from "../maquetacion/NuevaEvidencia"
-import UserContext from "../../contextos/UserContext"
-import useRoles from "../../Hooks/Roles/useRoles"
 
-function Dashboard(props) {  
+import { Box, Tab, Tabs } from "@mui/material";
+import ProgresoCompletoAlumno from "../maquetacion/ProgresoCompletoAlumno";
+import RevisionesPendientes from "../maquetacion/RevisionesPendientes";
+import Funcionalidadestudiante from "../Funcionalidades/Funcionalidadestudiante";
+import FuncionalidadDocente from "../Funcionalidades/FuncionalidadDocente";
+
+
+function Dashboard(props) {
     console.log("USER:", props.user.name);
     return (
-    <>
-    <h2>MAIN</h2>
-    <NuevaEvidencia user={props.user}></NuevaEvidencia>
-    <div>{props.user.name}</div>
-    </>)
+        <>
+            
+            <Funcionalidadestudiante user={props.user}></Funcionalidadestudiante>
+            <FuncionalidadDocente user={props.user}></FuncionalidadDocente>
+            <div>{props.user.name}</div>
+        </>)
 }
 export default Dashboard
