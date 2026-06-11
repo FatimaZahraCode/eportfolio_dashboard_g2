@@ -19,9 +19,9 @@ function FuncionalidadDocente(props) {
                 </Tabs>
             </Box>
             <Box sx={{ p: 3 }}>
-                {value === 0 && <PlanificarCriterios />}
+                {value === 0 && <PlanificarCriterios user={props.user}/>}
                 {value === 1 && <EvaluarEvidencias user={props.user} />}
-                {value === 2 && <AsignarRevisiones />}
+                {value === 2 && <AsignarRevisiones user={props.user}/>}
             </Box>
         </>
     )

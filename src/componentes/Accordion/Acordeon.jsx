@@ -5,35 +5,38 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
-import useRoles from '../../Hooks/Roles/useRoles';
-import mockAdministrador from '../../mocks/mock-administrador.js';
 import useAdministradores from '../../Hooks/Administradores/useAdministradores.jsx';
-import useMisModulosImpartidos from '../Hooks/ModulosImpartidos/useMisModulosImpartidos.jsx';
-import useMisModulosMatriculados from '../Hooks/ModulosMatriculados/useMisModulosMatriculados.jsx';
+import useMisModulosImpartidos from '../../Hooks/ModulosImpartidos/useMisModulosImpartidos.jsx';
+import useMisModulosMatriculados from '../../Hooks/ModulosMatriculados/useMisModulosMatriculados.jsx';
 import { Link } from 'react-router-dom';
 
 function Acordeon(props) {
 
-    const roles = props.roles;
-    console.log("LISTA:", roles);
-    const rol = roles.name;
-    console.log("roles",rol)
+    const usuarioActivo = props.user; 
+    const nombreUsuario = usuarioActivo?.name; // Ej: "Víctor", "Alberto"
+    
+    console.log("Acordeon - Usuario Activo:", nombreUsuario);
+
     const modulosImpartidos = useMisModulosImpartidos();
     const opcionMenu=useAdministradores();
+    const modulosMatriculados = useMisModulosMatriculados()
+
     const opcionAdministrativa=opcionMenu?.lista?.[0]
     console.log(opcionAdministrativa)
     console.log("MODULOS IMPARTIDOS:", modulosImpartidos);
-    const nombresModulos = modulosImpartidos?.lista?.[0]?.[rol]?.lista || [];
+   const nombresModulos = modulosImpartidos?.lista?.[nombreUsuario]?.lista || [];
     console.log("nombresModulos", nombresModulos);
-    const modulosMatriculados = useMisModulosMatriculados()
-    const nombresModulosMatriculados = modulosMatriculados?.lista?.[rol]?.lista || [];
+    
+    const nombresModulosMatriculados = modulosMatriculados?.lista?.[nombreUsuario]?.lista || [];
     console.log("nombresModulosMatriculados", nombresModulosMatriculados);
 
+    console.log("Módulos Docente:", nombresModulos);
+    console.log("Módulos Estudiante:", nombresModulosMatriculados);
     
 
     return (
         <div>
-            {roles.roles.map((rolItem, index) => (
+            {usuarioActivo?.roles?.map((rolItem, index) => (
                 <Accordion key={index}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography>{rolItem.toUpperCase()}</Typography>

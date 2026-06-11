@@ -1,12 +1,35 @@
-import { useContext, useState } from "react";
-import mockRoles from "../../mocks/mock-roles"
- function useRoles() {
-   const [buscando, setBuscando] = useState(false);
-   const [lista, setLista] = useState(Object.values(mockRoles));
+import { useEffect, useState } from "react";
+//import mockRoles from "../../mocks/mock-roles"
+import getAllRoles from "../../servicios/Roles/getAllRoles";
+function useRoles() {
+  console.log("HOOK EJECUTADO");
+  const [buscando, setBuscando] = useState(true);
+  const [lista, setLista] = useState([]);
+  function obtenerRoles() {
+    console.log("OBTENIENDO ROLES");
+    setBuscando(true);
+    return getAllRoles().then((listaRoles) => {
+      console.log("Hook - Datos crudos de la API:", listaRoles);
+      if (listaRoles) {
+        setLista(listaRoles);
+      }
 
-   return {
+      setBuscando(false);
+
+    }).catch((err) => {
+      console.error("Hook - Error al obtener roles:", err);
+      setBuscando(false);
+    });
+  }
+  useEffect(() => {
+    obtenerRoles();
+  }, []); // Array vacío = solo se ejecuta una vez al montar la app
+  console.log(lista)
+
+  return {
     buscando,
-    lista
+    lista,
+    obtenerRoles,
   };
 
- }export default useRoles;
+} export default useRoles;

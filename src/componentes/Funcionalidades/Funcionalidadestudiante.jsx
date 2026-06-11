@@ -21,9 +21,9 @@ function Funcionalidadestudiante(props) {
                 </Tabs>
             </Box>
             <Box sx={{ p: 3 }}>
-                {value === 0 && <ProgresoCompletoAlumno />}
+                {value === 0 && <ProgresoCompletoAlumno user={props.user} />}
                 {value === 1 && <NuevaEvidencia user={props.user} />}
-                {value === 2 && <RevisionesPendientes />}
+                {value === 2 && <RevisionesPendientes user={props.user} />}
             </Box>
         </>
 

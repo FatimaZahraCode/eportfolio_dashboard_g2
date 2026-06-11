@@ -3,12 +3,13 @@ import Acordeon from "../Accordion/Acordeon"
 function Roles(props) {
 
     const lista=props.user;
-    console.log("LISTA:", lista);
+    const usuarioActivo = lista?.[0];
+    console.log("Roles.jsx - Enviando datos al Acordeón:", lista);
     return (
         <>
             <h2>ASIDE</h2>
-            <div>{lista.name}</div>
-            <Acordeon  roles={lista} />
+            <div>{usuarioActivo?.name}</div>
+            <Acordeon  user={lista} />
         </>)
 }
 export default Roles

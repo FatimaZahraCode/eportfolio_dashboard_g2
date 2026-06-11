@@ -20,22 +20,21 @@ function App() {
   return (
 
     <>
-      {/* <Menu />
-      <Route path="/funcionalidaddocente/:modulo" element={<FuncionalidadDocente />} /> */}
-      <TokenContext.Provider value={tareasRA}>
-        <Home />
-      </TokenContext.Provider>
-
       <Routes>
-        <Route path="/"/>
-        <Route path="/funcionalidaddocente/:modulo"  />
+        <Route path="/" element={
+          <TokenContext.Provider value={tareasRA}>
+            <Home />
+          </TokenContext.Provider>
+        }
+        />
+        <Route path="/funcionalidaddocente/:modulo" element={<FuncionalidadDocente />} />
         <Route path="/funcionalidadestudiante/:modulo" element={<Funcionalidadestudiante />} />
         <Route path="/familiasprofesionales" />
-        <Route path="/ciclosformativos/"  />
-        <Route path="/modulosformativos/"  />
+        <Route path="/ciclosformativos/" />
+        <Route path="/modulosformativos/" />
         <Route path="/ra/" />
         <Route path="/ce/" />
-        <Route path="/crearusuarios/"  />
+        <Route path="/crearusuarios/" />
         <Route path="/roles/" />
         <Route path="/matriculas/" />
         <Route path="/docentes/" />
