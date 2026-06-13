@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getAllModulosMatriculados from "../../servicios/ModulosMatriculados/getAllModulosMatriculados";
 function useMisModulosMatriculados() {
    const [buscando, setBuscando] = useState(true);
-   const [lista, setLista] = useState([]);
+   const [lista, setLista] = useState({});
       
     function obtenerModulosMatriculados() {
       setBuscando(true)

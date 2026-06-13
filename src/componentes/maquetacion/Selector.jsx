@@ -1,20 +1,16 @@
-import React, { useContext } from "react";
-import TokenContext from "../../contextos/TokenContext"
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-function Selector({tarea,manejarOpcion}) {
-    const token =useContext(TokenContext)
-    let lista=token.lista
-    console.log("LISTA:", tarea);   
+function Selector({ tarea, manejarOpcion, lista }) {
 
     const handleChange = (event) => {
-        manejarOpcion(event.target.value)
+        const valorNumerico = parseInt(event.target.value, 10);
+        manejarOpcion(valorNumerico)
     };
+    console.log("tarea elegida ", tarea);
 
-    
     return (
         <>
             <Box sx={{ minWidth: 120 }}>
@@ -27,10 +23,10 @@ function Selector({tarea,manejarOpcion}) {
                         label="Tarea"
                         onChange={handleChange}
                     >
-                        {lista.map((o)=>
-                        <MenuItem key={o.id} value={o.id}>{o.observaciones}</MenuItem>)
+                        {lista.map((o) =>
+                            <MenuItem key={o.id} value={o.id}>{o.observaciones}</MenuItem>)
                         }
-                        
+
                     </Select>
                 </FormControl>
             </Box>

@@ -4,7 +4,7 @@ import getAllRoles from "../../servicios/Roles/getAllRoles";
 function useRoles() {
   console.log("HOOK EJECUTADO");
   const [buscando, setBuscando] = useState(true);
-  const [lista, setLista] = useState([]);
+  const [lista, setLista] = useState({});
   function obtenerRoles() {
     console.log("OBTENIENDO ROLES");
     setBuscando(true);

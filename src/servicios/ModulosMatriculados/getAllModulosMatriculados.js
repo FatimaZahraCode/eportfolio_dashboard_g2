@@ -1,5 +1,5 @@
 function getAllModulosMatriculados() {
-    return fetch('https://mocki.io/v1/48169a24-95f1-493e-bff6-d52f6da44656')
+    return fetch('https://mocki.io/v1/a334c29d-bf6d-41ec-9c7a-4095c2141093')
     .then((response)=>{
         return (response.json());
     }).then((data)=>{

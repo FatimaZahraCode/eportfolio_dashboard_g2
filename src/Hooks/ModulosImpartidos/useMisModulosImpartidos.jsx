@@ -2,7 +2,7 @@ import { useState , useEffect } from "react";
 import getAllImpartidos from "../../servicios/ModulosImpartidos/getAllImpartidos";
 function useMisModulosImpartidos() {
   const [buscando, setBuscando] = useState(false);
-  const [lista, setLista] = useState([]);
+  const [lista, setLista] = useState({});
   function obtenerModulosImpartidos() {
     console.log("OBTENIENDO MODULOS IMPARTIDOS");
     setBuscando(true);

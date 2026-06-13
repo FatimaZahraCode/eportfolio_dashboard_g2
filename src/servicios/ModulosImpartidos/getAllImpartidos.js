@@ -1,5 +1,5 @@
 function getAllImpartidos() {
-    return fetch('https://mocki.io/v1/2b52b48e-689f-4795-993a-85843907eaf2')
+    return fetch('https://mocki.io/v1/44d32275-15b2-472a-aaa4-2d945300fcb0')
         .then((response)=>{
             return (response.json())
         })

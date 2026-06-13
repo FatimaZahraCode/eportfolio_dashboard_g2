@@ -4,7 +4,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
 import useAdministradores from '../../Hooks/Administradores/useAdministradores.jsx';
 import useMisModulosImpartidos from '../../Hooks/ModulosImpartidos/useMisModulosImpartidos.jsx';
 import useMisModulosMatriculados from '../../Hooks/ModulosMatriculados/useMisModulosMatriculados.jsx';
@@ -13,7 +12,7 @@ import { Link } from 'react-router-dom';
 function Acordeon(props) {
 
     const usuarioActivo = props.user; 
-    const nombreUsuario = usuarioActivo?.name; // Ej: "Víctor", "Alberto"
+    const nombreUsuario = usuarioActivo?.name; 
     
     console.log("Acordeon - Usuario Activo:", nombreUsuario);
 
@@ -30,8 +29,7 @@ function Acordeon(props) {
     const nombresModulosMatriculados = modulosMatriculados?.lista?.[nombreUsuario]?.lista || [];
     console.log("nombresModulosMatriculados", nombresModulosMatriculados);
 
-    console.log("Módulos Docente:", nombresModulos);
-    console.log("Módulos Estudiante:", nombresModulosMatriculados);
+
     
 
     return (

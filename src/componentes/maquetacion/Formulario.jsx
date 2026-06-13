@@ -1,7 +1,7 @@
 import { Box, Button, TextField } from "@mui/material"
 import { useForm } from "react-hook-form"
 
-function Formulario({ tarea, manejarAccion, user }) {
+function Formulario({ tarea, lista, manejarAccion, user }) {
     let estado = {
         tarea_id: tarea,
         estudiante_id: user.id,
@@ -16,12 +16,16 @@ function Formulario({ tarea, manejarAccion, user }) {
         formState: { errors },
         watch
     } = useForm({ values: estado })
-    console.log(errors)
+    console.log("Errores formulario", errors)
 
     const manejarFormulario = handleSubmit((nuevaTarea) => {
-        console.log(nuevaTarea)
         manejarAccion(nuevaTarea)
-        reset(estado)
+        reset({
+            ...estado,
+            url: "",
+            descripcion: ""
+
+        })
     }
 
 

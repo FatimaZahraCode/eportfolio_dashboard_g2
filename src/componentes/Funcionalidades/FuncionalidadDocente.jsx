@@ -11,17 +11,17 @@ function FuncionalidadDocente(props) {
         };
     return (
         <>
-            <Box sx={{ width: '100%' }}>
-                <Tabs value={value} onChange={handleChange} centered>
-                    <Tab label="Planificar Criterios" />
-                    <Tab label="Evaluar Evidencias"></Tab>
-                    <Tab label="Asignar Revisiones" />
+            <Box sx={{ width: '100%' , backgroundColor:'#ade659',p: 1}}>
+                <Tabs value={value} onChange={handleChange} centered >
+                    <Tab label="Planificar Criterios" sx={{color: '#242424'}} />
+                    <Tab label="Evaluar Evidencias" sx={{color: '#242424'}}/>
+                    <Tab label="Asignar Revisiones" sx={{color: '#242424'}} />
                 </Tabs>
             </Box>
-            <Box sx={{ p: 3 }}>
-                {value === 0 && <PlanificarCriterios user={props.user}/>}
-                {value === 1 && <EvaluarEvidencias user={props.user} />}
-                {value === 2 && <AsignarRevisiones user={props.user}/>}
+            <Box sx={{ p: 3 ,backgroundColor:'#ade659',height: '92%'}}>
+                {value === 0 && <PlanificarCriterios user={props.user} sx={{color: '#242424'}}/>}
+                {value === 1 && <EvaluarEvidencias user={props.user} sx={{color: '#242424'}}/>}
+                {value === 2 && <AsignarRevisiones user={props.user}sx={{color: '#242424'}}/>}
             </Box>
         </>
     )

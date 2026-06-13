@@ -3,6 +3,7 @@ import Header from "../componentes/componentesPrincipales/Header";
 import Roles from "../componentes/componentesPrincipales/Roles";
 import Dashboard from "../componentes/componentesPrincipales/Dashboard";
 import useRoles from "../Hooks/Roles/useRoles";
+import Loader from "../componentes/Loader/Loader";
 
 
 function Home() {
@@ -11,9 +12,7 @@ function Home() {
   
   if (roles.buscando) {
     return (
-      <div>
-        Cargando sesión de usuario...
-      </div>
+      <Loader></Loader>
     );
   }
   
